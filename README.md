@@ -37,6 +37,46 @@ function App() {
 }
 ```
 
+## Example ( use blobUrl with audio tag )
+
+```javascript
+import React, { useState } from 'react';
+import createRecorder from 'react-simple-recorder';
+
+const Recorder = createRecorder(React);
+
+function App() {
+  const [blobUrl, setBlobUrl] = useState(null);
+
+  return (
+    <div>
+      <Recorder
+        containerClassName="my-recorder-container"
+        Stop={<div>stop!</div>}
+        Play={<p>play!</p>}
+        Pause={<button>pause!</button>}
+        Record={<div>record!</div>}
+        Send={<div>send!</div>}
+        onSend={blobUrl => {
+          alert('check console!');
+          console.log(`blobUrl : ${blobUrl}`);
+          setBlobUrl(blobUrl);
+        }}
+      />
+      <div>
+        {blobUrl ? (
+          <audio controls>
+            <source src={blobUrl}></source>
+          </audio>
+        ) : (
+          <div>blobUrl(audio) not exist</div>
+        )}
+      </div>
+    </div>
+  );
+}
+```
+
 ## Example ( with className )
 
 ```javascript
