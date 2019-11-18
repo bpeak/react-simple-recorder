@@ -13,7 +13,7 @@ yarn add react-simple-recorder
 
 ```javascript
 import React from 'react';
-import createRecorder from './Recorder';
+import createRecorder from 'react-simple-recorder';
 
 const Recorder = createRecorder(React);
 
@@ -41,7 +41,7 @@ function App() {
 
 ```javascript
 import React from 'react';
-import createRecorder from './Recorder';
+import createRecorder from 'react-simple-recorder';
 
 const Recorder = createRecorder(React);
 
