@@ -19,7 +19,7 @@ function App() {
       <Recorder
         containerClassName="w"
         onSend={(blobUrl, blob) => {
-          alert('check console!');
+          alert('check console!zz');
           console.log('blob : ', blob);
           console.log('blobUrl : ', blobUrl);
         }}

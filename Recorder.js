@@ -57,6 +57,11 @@ var createRecorder = function createRecorder(React) {
         blobUrl = _useState6[0],
         setBlobUrl = _useState6[1];
 
+    var _useState7 = useState(null),
+        _useState8 = _slicedToArray(_useState7, 2),
+        blob = _useState8[0],
+        setBlob = _useState8[1];
+
     var btnRecordClickHandler = function btnRecordClickHandler() {
       setIsRecording(true);
       navigator.mediaDevices.getUserMedia({
@@ -78,7 +83,9 @@ var createRecorder = function createRecorder(React) {
           }
         });
         mediaRecorder.addEventListener('stop', function () {
-          var blobUrl = URL.createObjectURL(new Blob(recordedChunks));
+          var blob = new Blob(recordedChunks);
+          var blobUrl = URL.createObjectURL(blob);
+          setBlob(blob);
           setBlobUrl(blobUrl);
           setIsRecording(false);
           stopped = false;
@@ -91,8 +98,9 @@ var createRecorder = function createRecorder(React) {
     };
 
     var btnSendClickHandler = function btnSendClickHandler() {
-      onSend(blobUrl);
+      onSend(blobUrl, blob);
       setBlobUrl(null);
+      setBlob(null);
     };
 
     var btnPlayClickHandler = function btnPlayClickHandler() {
