@@ -68,11 +68,15 @@ var createRecorder = function createRecorder(React) {
         audio: true,
         video: false
       }).then(function (stream) {
-        var mediaRecorder = new MediaRecorder(stream);
+        var options = {
+          mimeType: 'audio/webm'
+        };
+        var mediaRecorder = new MediaRecorder(stream, options);
         var recordedChunks = [];
         mediaRecorder.start(100);
         mediaRecorder.addEventListener('dataavailable', function (e) {
           if (e.data.size > 0) {
+            // console.log(e.data);
             recordedChunks.push(e.data);
           }
 
@@ -83,7 +87,9 @@ var createRecorder = function createRecorder(React) {
           }
         });
         mediaRecorder.addEventListener('stop', function () {
-          var blob = new Blob(recordedChunks);
+          var blob = new Blob(recordedChunks, {
+            type: 'audio/webm'
+          });
           var blobUrl = URL.createObjectURL(blob);
           setBlob(blob);
           setBlobUrl(blobUrl);

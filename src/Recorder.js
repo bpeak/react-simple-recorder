@@ -27,12 +27,14 @@ const createRecorder = React => {
     const btnRecordClickHandler = () => {
       setIsRecording(true);
       navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(stream => {
-        const mediaRecorder = new MediaRecorder(stream);
+        const options = { mimeType: 'audio/webm' };
+        const mediaRecorder = new MediaRecorder(stream, options);
         const recordedChunks = [];
 
         mediaRecorder.start(100);
         mediaRecorder.addEventListener('dataavailable', function(e) {
           if (e.data.size > 0) {
+            // console.log(e.data);
             recordedChunks.push(e.data);
           }
 
@@ -44,7 +46,7 @@ const createRecorder = React => {
         });
 
         mediaRecorder.addEventListener('stop', function() {
-          const blob = new Blob(recordedChunks);
+          const blob = new Blob(recordedChunks, { type: 'audio/webm' });
           const blobUrl = URL.createObjectURL(blob);
           setBlob(blob);
           setBlobUrl(blobUrl);
