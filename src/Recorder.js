@@ -19,9 +19,10 @@ const createRecorder = React => {
       stopped = false;
     }, []);
 
-    let [isRecording, setIsRecording] = useState(false);
-    let [isPlaying, setisPlaying] = useState(false);
-    let [blobUrl, setBlobUrl] = useState(null);
+    const [isRecording, setIsRecording] = useState(false);
+    const [isPlaying, setisPlaying] = useState(false);
+    const [blobUrl, setBlobUrl] = useState(null);
+    const [blob, setBlob] = useState(null);
 
     const btnRecordClickHandler = () => {
       setIsRecording(true);
@@ -43,7 +44,9 @@ const createRecorder = React => {
         });
 
         mediaRecorder.addEventListener('stop', function() {
-          const blobUrl = URL.createObjectURL(new Blob(recordedChunks));
+          const blob = new Blob(recordedChunks);
+          const blobUrl = URL.createObjectURL(blob);
+          setBlob(blob);
           setBlobUrl(blobUrl);
           setIsRecording(false);
           stopped = false;
@@ -56,8 +59,9 @@ const createRecorder = React => {
     };
 
     const btnSendClickHandler = () => {
-      onSend(blobUrl);
+      onSend(blobUrl, blob);
       setBlobUrl(null);
+      setBlob(null);
     };
 
     const btnPlayClickHandler = () => {

@@ -18,9 +18,10 @@ function App() {
       )}
       <Recorder
         containerClassName="w"
-        onSend={blobUrl => {
-          console.log(blobUrl, 'Z');
-          setBlob(blobUrl);
+        onSend={(blobUrl, blob) => {
+          alert('check console!');
+          console.log('blob : ', blob);
+          console.log('blobUrl : ', blobUrl);
         }}
         Stop={<div>stop!</div>}
         Play={<div>play!</div>}

@@ -27,9 +27,10 @@ function App() {
         Pause={<button>pause!</button>}
         Record={<div>record!</div>}
         Send={<div>send!</div>}
-        onSend={blobUrl => {
+        onSend={(blobUrl, blob) => {
           alert('check console!');
-          console.log(`blobUrl : ${blobUrl}`);
+          console.log('blob : ', blob);
+          console.log('blobUrl : ', blobUrl);
         }}
       />
     </div>
@@ -57,9 +58,10 @@ function App() {
         Pause={<button>pause!</button>}
         Record={<div>record!</div>}
         Send={<div>send!</div>}
-        onSend={blobUrl => {
+        onSend={(blobUrl, blob) => {
           alert('check console!');
-          console.log(`blobUrl : ${blobUrl}`);
+          console.log('blob : ', blob);
+          console.log('blobUrl : ', blobUrl);
           setBlobUrl(blobUrl);
         }}
       />
@@ -99,9 +101,10 @@ function App() {
             send!
           </div>
         }
-        onSend={blobUrl => {
+        onSend={(blobUrl, blob) => {
           alert('check console!');
-          console.log(`blobUrl : ${blobUrl}`);
+          console.log('blob : ', blob);
+          console.log('blobUrl : ', blobUrl);
         }}
       />
     </div>
@@ -111,15 +114,15 @@ function App() {
 
 # Props
 
-| Name               | Type            | arguments |
-| ------------------ | --------------- | --------- |
-| containerClassName | string          |           |
-| Stop               | React.ReactNode |           |
-| Play               | React.ReactNode |           |
-| Pause              | React.ReactNode |           |
-| Record             | React.ReactNode |           |
-| Send               | React.ReactNode |           |
-| onSend             | callback Func   | blobUrl   |
+| Name               | Type            | arguments       |
+| ------------------ | --------------- | --------------- |
+| containerClassName | string          |                 |
+| Stop               | React.ReactNode |                 |
+| Play               | React.ReactNode |                 |
+| Pause              | React.ReactNode |                 |
+| Record             | React.ReactNode |                 |
+| Send               | React.ReactNode |                 |
+| onSend             | callback Func   | (blobUrl, blob) |
 
 # Contributing
 
