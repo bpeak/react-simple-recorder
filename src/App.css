@@ -1,0 +1,26 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.a {
+  padding: 30px;
+  margin: 10px;
+  border-radius: 2px;
+  background-color: skyblue;
+  color: white;
+}
+
+.w {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.active {
+  background-color: green;
+}
+
+.disabled {
+  display: none;
+}

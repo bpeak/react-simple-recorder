@@ -1,0 +1,46 @@
+{
+  "name": "react-simple-recorder",
+  "version": "1.0.0",
+  "description": "Simple React Recorder",
+  "main": "./Recorder.js",
+  "author": {
+    "name": "bpeak",
+    "email": "bpeakcpeak@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react-scripts": "3.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "babel src/Recorder.js --out-file Recorder.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:70",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
